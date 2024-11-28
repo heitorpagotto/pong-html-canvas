@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pong Game</title>
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <style>
+    body {
+      background: #000;
+    }
+    canvas {
+      background: #000;
+      border-left: 16px solid #000;
+      border-right: 16px solid #000;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+    }
+
+    #main-game {
+      border: 2px solid white;
+      margin: 20px auto;
+      display: block;
+      width: fit-content;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="./assets/img/logo.png" alt="Logo">
+  </header>
+  <div id="game-form">
+    <div class="input-set" style="margin-bottom: 1rem">
+      <label for="game-goal">Objetivo de Pontos</label>
+      <input class="game-score" min="1" type="number" id="game-goal" value="5">
+    </div>
+    <div style="margin-bottom: 1rem">
+      <label class="check" for="infinite-game">
+        <input type="checkbox" onchange="handleInfiniteGame()" id="infinite-game" class="pixel-checkbox">
+        Jogo Infinito
+      </label>
+    </div>
+    <div>
+      <label class="check" for="game-cpu">
+        <input type="checkbox" id="game-cpu" class="pixel-checkbox">
+        2P Game
+      </label>
+    </div>
+    <button onclick="startGame()">
+      Começar
+    </button>
+  </div>
+  <div id="ingame-form" hidden>
+    <button onclick="stopGame()" title="Encerra a partida atual sem definir vencedores">
+      Encerrar Partida
+    </button>
+  </div>
+  <div id="main-game">
+    <canvas id="pongCanvas" width="800" height="400"></canvas>
+  </div>
+  <div class="controls">
+    <span class="controls-title">Controles</span>
+    <div class="control-columns">
+      <div style="display: flex; flex-direction: column">
+        <span>Player 1:</span>
+        <div class="control">
+          <div class="control-icon">
+            <div class="control-icon-bg"></div>
+            <img width="25px" height="25px"  src="./assets/img/w.png" alt="W">
+          </div>
+          <span>
+            Cima
+          </span>
+        </div>
+        <div class="control">
+          <div class="control-icon">
+            <div class="control-icon-bg"></div>
+            <img width="25px" height="25px"  src="./assets/img/s.png" alt="S">
+          </div>
+          <span>
+            Baixo
+          </span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <span>Player 2:</span>
+        <div class="control">
+          <div class="control-icon">
+            <div class="control-icon-bg"></div>
+            <img width="25px" height="25px"  src="./assets/img/up.png" alt="Seta Cima">
+          </div>
+          <span>
+            Cima
+          </span>
+        </div>
+
+        <div class="control">
+          <div class="control-icon">
+            <div class="control-icon-bg"></div>
+            <img width="25px" height="25px"  src="./assets/img/down.png" alt="Seta Baixo">
+          </div>
+          <span>
+            Baixo
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="./assets/js/index.js" defer></script>
+</body>
+
+</html>
