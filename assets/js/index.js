@@ -24,13 +24,12 @@ export function handleInfiniteGame() {
     const gameGoal = document.getElementById('game-goal');
     const infiniteGame = document.getElementById('infinite-game').checked;
 
-
     if (infiniteGame) {
         gameGoal.disabled = true;
         gameGoal.value = 0;
     } else {
         gameGoal.disabled = false;
-        gameGoal.value = 5;
+        gameGoal.value = 3;
     }
 }
 
@@ -43,6 +42,8 @@ export function startGame() {
     const canvas = document.getElementById('pongCanvas');
     const ctx = canvas.getContext('2d');
 
+    handleScoreVisibility(+gameGoal);
+
     currentGame = new Pong(canvas, ctx, multiplayerGame, +gameGoal);
 
     currentGame.startGame();
@@ -51,6 +52,16 @@ export function startGame() {
 
     p1Score.setValue(0);
     p2Score.setValue(0);
+}
+
+function handleScoreVisibility(gameGoal) {
+    const score = document.querySelector('.score');
+
+    if (gameGoal === 0 || gameGoal > 9) {
+        score.style = 'display: none';
+    } else {
+        score.style = '';
+    }
 }
 
 function handleMenu(isStarting = false) {
@@ -111,8 +122,6 @@ export function stopGame() {
     p1Score.setValue(0);
     p2Score.setValue(0);
 }
-
-// TODO: esconder controle do Player 2 caso 2P Game não esteja marcado
 
 window.stopGame = stopGame;
 window.startGame = startGame;

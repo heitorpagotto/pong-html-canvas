@@ -11,12 +11,24 @@
           rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <header>
     <img src="./assets/img/logo.png" alt="Logo">
   </header>
+  <div class="credits">
+    <span>Feito por:</span>
+    <br>
+    <span><b>José Heitor Pagotto</b> RA 12225006</span>
+    <br>
+    <span><b>Rafael Henrique Menegon</b> RA 12224578</span>
+    <br>
+    <span><b>Enzo Cardoso Sabino</b> RA 12225199</span>
+    <br>
+    <span><b>Wesley Lencione de Oliveira</b> RA 12225140</span>
+  </div>
   <div id="game-form">
     <div class="input-set" style="margin-bottom: 1rem">
       <label for="game-goal">Objetivo de Pontos</label>
@@ -68,7 +80,7 @@
     <span class="controls-title">Controles</span>
     <div class="control-columns">
       <div style="display: flex; flex-direction: column">
-        <span>Player 1:</span>
+        <span class="control-player">Player 1:</span>
         <div class="control">
           <div class="control-icon">
             <div class="control-icon-bg"></div>
@@ -89,7 +101,7 @@
         </div>
       </div>
       <div style="display: flex; flex-direction: column">
-        <span>Player 2:</span>
+        <span class="control-player">Player 2:</span>
         <div class="control">
           <div class="control-icon">
             <div class="control-icon-bg"></div>
@@ -99,7 +111,6 @@
             Cima
           </span>
         </div>
-
         <div class="control">
           <div class="control-icon">
             <div class="control-icon-bg"></div>
@@ -111,9 +122,7 @@
         </div>
       </div>
     </div>
-
   </div>
-
   <script type="module" src="./assets/js/index.js" defer></script>
 </body>
 

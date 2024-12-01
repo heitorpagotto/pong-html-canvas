@@ -108,9 +108,9 @@ export class Pong {
 
         // Movimentação gradual limitada pela velocidade
         if (centerPaddle < targetY) {
-            this.player2Y += this.paddleSpeed * 0.5; // Move para baixo
+            this.player2Y += this.paddleSpeed * 0.55; // Move para baixo
         } else if (centerPaddle > targetY) {
-            this.player2Y -= this.paddleSpeed  * 0.5; // Move para cima
+            this.player2Y -= this.paddleSpeed  * 0.55; // Move para cima
         }
 
         // Limites de movimento da raquete para não ultrapassar o canvas
@@ -163,7 +163,7 @@ export class Pong {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         // Exibe o texto de vitória
-        this.ctx.font = "40px 'Press Start 2P'";
+        this.ctx.font = "60px \'Pixelify Sans\'";
         this.ctx.textAlign = "center";
         this.ctx.fillStyle = "#FFF";
         this.ctx.fillText(winnerText, this.canvas.width / 2, this.canvas.height / 2);
@@ -255,11 +255,14 @@ export class Pong {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         // Desenhar as pontuações
-        this.ctx.font = '20px "Press Start 2P"';
-        this.ctx.textAlign = 'center';
-        this.ctx.fillStyle = '#fff';
-        this.ctx.fillText(`${this.player1Score}`, 150, 50);
-        this.ctx.fillText(`${this.player2Score}`, this.canvas.width - 150, 50);
+        if (this.goal === 0 || this.goal > 9) {
+            this.ctx.font = '50px \'Pixelify Sans\'';
+            this.ctx.textAlign = 'center';
+            this.ctx.fillStyle = '#fff';
+            this.ctx.fillText(`${this.player1Score}`, 150, 50);
+            this.ctx.fillText(`${this.player2Score}`, this.canvas.width - 150, 50);
+        }
+
 
         // Desenhar a bola
         this.ctx.beginPath();
