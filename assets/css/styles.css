@@ -3,6 +3,10 @@ body {
     color: white;
 }
 
+* {
+    user-select: none !important;
+}
+
 canvas#pongCanvas {
     background: #000;
     border-left: 16px solid #000;
